@@ -1,0 +1,14 @@
+version: '3'
+services:
+  server:
+    build: ./docker/server
+    container_name: 'webpagetest_server'
+    ports:
+      - '8080:80'
+  agent:
+    build: ./docker/agent
+    container_name: 'webpagetest_agent'
+    network_mode: "host"
+    environment:
+      - SERVER_URL=http://localhost:8080/work/
+      - LOCATION=Test
