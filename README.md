@@ -1,7 +1,7 @@
 # Main service and documentation
 https://www.webpagetest.org/
 
-# How to create webpagetest private server with docker containers
+# Start webpagetest on private server via docker-compose and cron (to clear test results by schedule)
 
 ### Create systemd service
 ```
