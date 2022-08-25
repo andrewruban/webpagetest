@@ -15,6 +15,12 @@ sudo systemctl start webpagetest.service
 sudo systemctl status  webpagetest.service
 sudo systemctl enable  webpagetest.service
 ```
+
+### Add www-data user permissions to a folder where you want to write results
+```
+sudo chown -R www-data /tmp/wpt_results
+```
+
 ### Check WebPageTest Installation Check
 ````
 http://<IP>/install/
