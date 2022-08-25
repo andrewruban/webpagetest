@@ -6,8 +6,8 @@ services:
     ports:
       - '80:80'
     volumes:
-      # - data:/var/www/html/results
-      - /tmp/wpt_results:/var/www/html/results:rw
+      - /tmp/wpt_results/results:/var/www/html/results
+      - /tmp/wpt_results/logs:/var/www/html/logs
   agent:
     build: ./docker/agent
     container_name: 'webpagetest_agent'
@@ -15,16 +15,17 @@ services:
     environment:
       - SERVER_URL=http://localhost:80/work/
       - LOCATION=Test
-  # cron:
-  #   image: alpine:3.16.0
-  #   container_name: 'cron_app'
-  #   command: >
-  #     sh -c "
-  #     echo '1 1 * * * rm -rf /var/www/html/results/* ' > /etc/crontabs/root
-  #     && crond -f"
-  #   volumes:
-  #     - data:/var/www/html/results
-  #   depends_on:
-  #     - server
+#   cron:
+#     image: alpine:3.16.0
+#     container_name: 'cron_app'
+#     command: >
+#       sh -c "
+#       echo '1 1 * * * rm -rf /var/www/html/results/* ' > /etc/crontabs/root
+#       && crond -f"
+#     volumes:
+#       - results:/var/www/html/results
+#       - logs:/var/www/html/results
+#     depends_on:
+#       - server
 # volumes:
 #   data:
