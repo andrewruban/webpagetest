@@ -7,6 +7,13 @@ services:
       - '8080:80'
     volumes:
       - data:/var/www/html/results
+  agent:
+    build: ./docker/agent
+    container_name: 'webpagetest_agent'
+    network_mode: "host"
+    environment:
+      - SERVER_URL=http://localhost:8080
+      - LOCATION=Test
   cron:
     image: alpine:3.16.0
     container_name: 'cron_app'
@@ -18,12 +25,5 @@ services:
       - data:/var/www/html/results
     depends_on:
       - server
-  agent:
-    build: ./docker/agent
-    container_name: 'webpagetest_agent'
-    network_mode: "host"
-    environment:
-      - SERVER_URL=http://localhost:8080
-      - LOCATION=Test
 volumes:
   data:
