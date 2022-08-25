@@ -15,3 +15,7 @@ sudo systemctl start webpagetest.service
 sudo systemctl status  webpagetest.service
 sudo systemctl enable  webpagetest.service
 ```
+### Check WebPageTest Installation Check
+````
+http://<IP>/install/
+```
