@@ -1,6 +1,12 @@
 # Main service and documentation
 https://www.webpagetest.org/
 
+Requirements
+```
+1. docker
+2. docker-compose
+```
+
 # Start webpagetest on private server via docker-compose and cron (to clear test results by schedule)
 
 ### Create systemd service
@@ -22,6 +28,6 @@ sudo chown -R www-data /tmp/wpt_results
 ```
 
 ### Check WebPageTest Installation Check
-````
+```
 http://<IP>/install/
 ```
