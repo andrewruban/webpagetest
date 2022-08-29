@@ -3,8 +3,8 @@ https://www.webpagetest.org/
 
 Requirements
 ```
-1. docker
-2. docker-compose
+git
+docker and docker-compose
 ```
 
 # Start webpagetest on private server via docker-compose and cron (to clear test results by schedule)
