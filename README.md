@@ -11,7 +11,7 @@ docker and docker-compose
 
 ### Create systemd service
 ```
-cp webpagetest.service /etc/systemd/system/webpagetest.service
+mv webpagetest.service /etc/systemd/system/webpagetest.service
 ```
 
 ### Start systemd service
