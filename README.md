@@ -31,3 +31,8 @@ sudo chown -R www-data /tmp/wpt_results
 ```
 http://<IP>/install/
 ```
+
+### Add 
+```
+5 2 * * * find /tmp/wpt_results -type f -mtime +62 -exec rm -f {} \;
+5 3 * * * find /tmp/wpt_results -type d -empty -mtime +62 -exec rmdir {} \;
