@@ -1,13 +1,13 @@
 [Unit]
-Description=WebPageTest stream: technology owner: product-tech
+Description=WebPageTest
 Requires=docker.service
 After=docker.service
 
 [Service]
 Restart=always
 WorkingDirectory=/opt/webpagetest
-ExecStart=/usr/bin/docker-compose -f docker-compose.yml up
-ExecStop=/usr/bin/docker-compose -f docker-compose.yml down
+ExecStart=/usr/bin/docker-compose -f /opt/webpagetest/webpagetest-compose.yml up
+ExecStop=/usr/bin/docker-compose -f /opt/webpagetest/webpagetest-compose.yml down
 
 [Install]
 WantedBy=multi-user.target

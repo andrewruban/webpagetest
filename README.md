@@ -1,13 +1,16 @@
 # Main service and documentation
 https://www.webpagetest.org/
 
-Requirements
+### Required packages to proceed
 ```
 git
-docker and docker-compose
+docker
+docker-compose
 ```
 
-# Start webpagetest on private server via docker-compose and cron (to clear test results by schedule)
+# Start webpagetest on private server via docker-compose and use cron to clear test results by schedule
+
+### Clone repo
 
 ### Create systemd service
 ```
@@ -18,8 +21,8 @@ mv webpagetest.service /etc/systemd/system/webpagetest.service
 ```
 sudo systemctl daemon-reload
 sudo systemctl start webpagetest.service
-sudo systemctl status  webpagetest.service
 sudo systemctl enable  webpagetest.service
+sudo systemctl status  webpagetest.service
 ```
 
 ### Add www-data user permissions to a folder where you want to write results
@@ -32,7 +35,8 @@ sudo chown -R www-data /tmp/wpt_results
 http://<IP>/install/
 ```
 
-### Add log clearing 
+### Add log clearing
 ```
 5 2 * * * find /tmp/wpt_results -type f -mtime +62 -exec rm -f {} \;
 5 3 * * * find /tmp/wpt_results -type d -empty -mtime +62 -exec rmdir {} \;
+```
