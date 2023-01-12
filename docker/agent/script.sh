@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 set -e
 if [ -z "$SERVER_URL" ]; then
   echo >&2 'SERVER_URL not set'
