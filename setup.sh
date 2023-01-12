@@ -33,9 +33,9 @@ sudo systemctl enable webpagetest.service
 sudo systemctl status webpagetest.service
 
 # Add www-data user permissions to a folder where you want to write results
-sudo mkdir -p /tmp/wpt_results
-sudo chown -R www-data /tmp/wpt_results
+sudo mkdir -p /root/wpt_results
+sudo chown -R www-data /root/wpt_results
 
 # Add web-page-test log clearing by cron
-echo "5 2 * * * root find /tmp/wpt_results -type f -mtime +62 -exec rm -f {} \;" >> /etc/crontab
-echo "5 3 * * * root find /tmp/wpt_results -type d -empty -mtime +62 -exec rmdir {} \;" >> /etc/crontab
+echo "5 2 * * * root find /root/wpt_results -type f -mtime +62 -exec rm -f {} \;" >> /etc/crontab
+echo "5 3 * * * root find /root/wpt_results -type d -empty -mtime +62 -exec rmdir {} \;" >> /etc/crontab
