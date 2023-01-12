@@ -10,7 +10,8 @@ docker-compose
 
 # Start webpagetest on private server via docker-compose and use cron to clear test results by schedule
 
-### Clone repo
+### Clone 
+repo in /opt/webpagetest
 
 ### Create systemd service
 ```
