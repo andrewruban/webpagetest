@@ -15,7 +15,7 @@ repo in /opt/webpagetest
 
 ### Create systemd service
 ```
-mv webpagetest.service /etc/systemd/system/webpagetest.service
+mv /opt/webpagetest/webpagetest.service /etc/systemd/system/webpagetest.service
 ```
 
 ### Start systemd service
