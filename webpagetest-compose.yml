@@ -6,8 +6,8 @@ services:
     ports:
       - '80:80'
     volumes:
-      - /root/wpt_results/results:/var/www/html/results:rw
-      - /root/wpt_results/logs:/var/www/html/logs:rw
+      - /tmp/wpt_results/results:/var/www/html/results:rw
+      - /tmp/wpt_results/logs:/var/www/html/logs:rw
   agent:
     build: ./docker/agent
     container_name: 'webpagetest_agent'
