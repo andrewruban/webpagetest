@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 set -euox pipefail
 
+# variables
+RESULTS_AND_LOGS_FOLDER='/root/wpt_results'
+
 # Install required software
 # docker-ce ( https://docs.docker.com/engine/install/ubuntu/ )
 sudo apt-get update
@@ -27,8 +30,8 @@ cd /opt/webpagetest
 sudo mv webpagetest.service /etc/systemd/system/webpagetest.service
 
 # Add www-data user permissions to a folder where you want to write results
-sudo mkdir -p /root/wpt_results
-sudo chown -R www-data /root/wpt_results
+sudo mkdir -p ${RESULTS_AND_LOGS_FOLDER}
+sudo chown -R www-data ${RESULTS_AND_LOGS_FOLDER}
 
 # Start web-page-test systemd service
 sudo systemctl daemon-reload
@@ -37,5 +40,5 @@ sudo systemctl enable webpagetest.service
 sudo systemctl status webpagetest.service
 
 # Add web-page-test log clearing by cron
-echo "5 2 * * * root find /root/wpt_results -type f -mtime +62 -exec rm -f {} \;" >> /etc/crontab
-echo "5 3 * * * root find /root/wpt_results -type d -empty -mtime +62 -exec rmdir {} \;" >> /etc/crontab
+echo "5 2 * * * root find ${RESULTS_AND_LOGS_FOLDER} -type f -mtime +62 -exec rm -f {} \;" >> /etc/crontab
+echo "5 3 * * * root find ${RESULTS_AND_LOGS_FOLDER} -type d -empty -mtime +62 -exec rmdir {} \;" >> /etc/crontab
