@@ -3,9 +3,13 @@ https://www.webpagetest.org/
 
 ### Required packages to proceed
 ```
-git (apt install git)
-docker ( https://docs.docker.com/engine/install/ubuntu/ )
-docker-compose (apt install docker-compose )
+# git 
+apt install git
+
+# docker
+https://docs.docker.com/engine/install/ubuntu/
+# docker-compose
+apt install docker-compose 
 ```
 
 # Start webpagetest on private server via docker-compose and use cron to clear test results by schedule
