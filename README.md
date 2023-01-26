@@ -1,6 +1,8 @@
 # Main service and documentation
 https://www.webpagetest.org/
 
+## RUN setup.sh script or do MANUAL step below
+
 ### Required packages to proceed
 ```
 # git 
@@ -13,7 +15,7 @@ https://docs.docker.com/engine/install/ubuntu/
 apt install docker-compose 
 ```
 
-## RUN setup.sh script or do MANUAL step below
+
 
 # Start webpagetest on private server via docker-compose and use cron to clear test results by schedule
 
